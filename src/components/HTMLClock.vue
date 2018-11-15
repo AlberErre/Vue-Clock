@@ -40,8 +40,8 @@
       
     },  // similar to state
     
-    mounted() {
-      window.setInterval(() => {
+    created() {
+      setInterval( () => {
         this.setHour();
         this.setMinutes();
         this.setSeconds();           
