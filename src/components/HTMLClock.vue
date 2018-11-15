@@ -3,12 +3,14 @@
     <div class="hours">{{ hours }}</div>
     <div class="sep">:</div>
     <div class="minutes">{{ minutes }}</div>
-    <div class="mode">:</div>
+    <div class="sep">:</div>
     <div class="seconds">{{ seconds }}</div>
   </div>
 </template>
 
 <script>
+  import {setInterval} from 'timers';
+  
   export default {
     props: ['theme'],
     data: function() { 
@@ -18,18 +20,41 @@
         seconds: '--'
       } 
     },
-    methods: {},  // normal functions
-    computed: {}, // cache functions
-    watch: {}     // similar to state
+    methods: {
+      setHour() {
+        this.hours = new Date().getHours();
+      },
+    
+      setMinutes() {
+        this.minutes = new Date().getMinutes();
+      },
+    
+      setSeconds() {
+        this.seconds = new Date().getSeconds();
+      }
+    },
+    computed: {
+      
+    }, // cache functions
+    watch: {
+      
+    },  // similar to state
+    
+    mounted() {
+      window.setInterval(() => {
+        this.setHour();
+        this.setMinutes();
+        this.setSeconds();           
+      }, 1000);
+    }
   }
+  
 </script>
 
 <style lang="postcss" scoped>
   .html-clock {
     display: grid;
     grid-template-columns: 3fr 1fr 3fr 1fr 3fr 1.5fr;
-    justify-content: center;
-    align-items: center;
     width: 500px;
     height: 125px;
   }
@@ -37,6 +62,7 @@
   .html-clock > div {
     display: flex;
     justify-content: center;
+    align-items: center;
   }
   
   .sep {
