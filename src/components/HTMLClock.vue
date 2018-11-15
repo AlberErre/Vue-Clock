@@ -8,6 +8,22 @@
   </div>
 </template>
 
+<script>
+  export default {
+    props: ['theme'],
+    data: function() { 
+      return {
+        hours: '--',
+        minutes: '--',
+        seconds: '--'
+      } 
+    },
+    methods: {},  // normal functions
+    computed: {}, // cache functions
+    watch: {}     // similar to state
+  }
+</script>
+
 <style lang="postcss" scoped>
   .html-clock {
     display: grid;
