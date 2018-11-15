@@ -1,7 +1,10 @@
 <template>
-  <div>
+  <div class="mainContainer">
     <h1>¡VueJS 2.0!</h1>
-    <img src="./assets/logo.png" alt="VueJS Logo">
+    
+    <div>
+      <img src="./assets/logo.png" alt="VueJS Logo">
+    </div>
     
     <h1>
       <html-clock>
@@ -23,9 +26,10 @@
 
 
 <style>
-  :root {
-    text-align: center;
+  .mainContainer {
     display: flex;
+    flex-direction: column;
+    
     justify-content: center;
     align-items: center;
   }

@@ -30,7 +30,7 @@
       },
     
       setSeconds() {
-        this.seconds = new Date().getSeconds();
+        this.seconds = new Date().getSeconds().toString().padStart(2,'0');
       }
     },
     computed: {
@@ -40,11 +40,11 @@
       
     },  // similar to state
     
-    created() {
+    mounted() {
       setInterval( () => {
         this.setHour();
         this.setMinutes();
-        this.setSeconds();           
+        this.setSeconds();    
       }, 1000);
     }
   }
